@@ -23,6 +23,7 @@ import { Tooltip } from 'primereact/tooltip';
 import Topbar from './components/layout/Topbar';
 import Menu from './components/layout/Menu';
 import Footer from './components/layout/Footer';
+import Config from './components/layout/Config';
 import Dashboard from './components/Dashboard';
 import Create from './components/core/Create' ;
 
@@ -164,8 +165,13 @@ function App(){
   return (
     <div className={wrapperClass} onClick={onWrapperClick}>
       <Tooltip ref={copyTooltipRef} target=".block-action-copy" position="bottom" content="Copied to clipboard" event="focus" />
-      <Topbar onToggleMenuClick={onToggleMenuClick} layoutColorMode={layoutColorMode}
-                mobileTopbarMenuActive={mobileTopbarMenuActive} onMobileTopbarMenuClick={onMobileTopbarMenuClick} onMobileSubTopbarMenuClick={onMobileSubTopbarMenuClick} />
+      <Topbar 
+        onToggleMenuClick={onToggleMenuClick} 
+        layoutColorMode={layoutColorMode}
+        mobileTopbarMenuActive={mobileTopbarMenuActive} 
+        onMobileTopbarMenuClick={onMobileTopbarMenuClick} 
+        onMobileSubTopbarMenuClick={onMobileSubTopbarMenuClick} 
+      />
 
       <div className="layout-sidebar" onClick={onSidebarClick}>
           <Menu onMenuItemClick={onMenuItemClick} layoutColorMode={layoutColorMode} />
@@ -173,11 +179,11 @@ function App(){
 
       <div className="layout-main-container">
         <div className="layout-main">
-        <Routes>
-            <Route path="/" element={<Dashboard/>} exact />
-            <Route path='/addCustomer' element={<Create label='its Worked'/>} />
-        </Routes>
-        <Footer layoutColorMode={layoutColorMode} />
+          <Routes>
+              <Route path="/" element={<Dashboard/>} exact />
+              <Route path='/addCustomer' element={<Create label='its Worked'/>} />
+          </Routes>
+          <Footer layoutColorMode={layoutColorMode} />
         </div>
       </div>
 
