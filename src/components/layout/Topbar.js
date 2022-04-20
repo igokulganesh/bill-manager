@@ -6,8 +6,8 @@ function Topbar(props){
   return (
     <div className="layout-topbar" >
       <Link to="/" className="layout-topbar-logo">
-          <img src="assets/invoiceIcon.png" alt="Bill" onClick={props.onToggleMenuClick} />
-          <span onClick={props.onToggleMenuClick}>Bill Manager</span>
+          <img src="assets/invoiceIcon.png" alt="Bill" />
+          <span>Bill Manager</span>
           <button type="button" className="p-link  layout-menu-button layout-topbar-button" onClick={props.onToggleMenuClick}>
             <i className="pi pi-bars"/>
           </button>

@@ -1,24 +1,30 @@
+// importing React components
 import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
-import { Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
+// importing External CSS 
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap css
 import "primereact/resources/themes/mdc-light-indigo/theme.css"; // prime theme
-import "primereact/resources/primereact.min.css";               // prime core css
+import "primereact/resources/primereact.css";               // prime core css
 import "primeicons/primeicons.css";                            // prime icons
 import "primeflex/primeflex.css" ;                            // prime flex
+import 'prismjs/themes/prism-coy.css';
 import PrimeReact from 'primereact/api';
 
-import Topbar from './components/dashboard/Topbar';
-import Menu from './components/dashboard/Menu.js';
-
+// importing internal css
 import './assets/layout/layout.scss';
-import './App.scss';
 
-
+// importing packages needed
 import { Tooltip } from 'primereact/tooltip';
 
+// importing own components
+import Topbar from './components/layout/Topbar';
+import Menu from './components/layout/Menu';
+import Footer from './components/layout/Footer';
+import Dashboard from './components/Dashboard';
+import Create from './components/core/Create' ;
 
 function App(){
   const [layoutMode, setLayoutMode] = useState('static');
@@ -164,6 +170,21 @@ function App(){
       <div className="layout-sidebar" onClick={onSidebarClick}>
           <Menu onMenuItemClick={onMenuItemClick} layoutColorMode={layoutColorMode} />
       </div>
+
+      <div className="layout-main-container">
+        <div className="layout-main">
+        <Routes>
+            <Route path="/" element={<Dashboard/>} exact />
+            <Route path='/addCustomer' element={<Create label='its Worked'/>} />
+        </Routes>
+        <Footer layoutColorMode={layoutColorMode} />
+        </div>
+      </div>
+
+      <CSSTransition classNames="layout-mask" timeout={{ enter: 200, exit: 200 }} in={mobileMenuActive} unmountOnExit>
+        <div className="layout-mask p-component-overlay"></div>
+      </CSSTransition>
+
     </div>
   ); 
 

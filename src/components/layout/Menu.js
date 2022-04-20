@@ -45,7 +45,7 @@ const menu = [
       {
         label: "Create Customer",
         icon: null, 
-        to: null,
+        to: '/addCustomer',
       },
       {
         label: "Display Customers",
@@ -117,7 +117,13 @@ const Submenu = (props) => {
 
       if (item.to) {
           return (
-              <NavLink aria-label={item.label} onKeyDown={onKeyDown} role="menuitem" className="p-ripple" activeClassName="router-link-active router-link-exact-active" to={item.to} onClick={(e) => onMenuItemClick(e, item, i)} exact target={item.target}>
+              <NavLink 
+                aria-label={item.label} onKeyDown={onKeyDown} 
+                role="menuitem" to={item.to} 
+                exact="true" target={item.target}
+                className={(navData) => (navData.isActive ? "router-link-active router-link-exact-active" : "p-ripple" )} 
+                onClick={(e) => onMenuItemClick(e, item, i)} 
+                >
                   {content}
               </NavLink>
           )
