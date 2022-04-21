@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+/backend/env
+/backend/keys
 
 # testing
 /coverage
@@ -18,8 +20,10 @@
 .env.test.local
 .env.production.local
 
+# binary
+*.pyc
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
-client_secret.json.json
